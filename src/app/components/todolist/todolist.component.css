@@ -16,11 +16,12 @@ div ul li {
   height: 60px;
   line-height: 60px;
   font-size: 24px;
+  color: white;
 }
 
 div ul li span {
   text-decoration: none;
-  color: white;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -29,11 +30,33 @@ div ul li span {
 }
 
 .spanRemove {
+  font-size: 16px;
+  font-weight: normal;
   position: absolute;
   right: 0;
   cursor: pointer;
+  margin-right: 5%;
+  color: red;
 }
 
 .pTitle {
   display: inline;
+}
+
+
+@media screen and (max-width:500px)
+{
+  div ul li {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  div ul li span {
+    float: left;
+    margin-left: 10%;
+  }
+  .spanRemove {
+    font-size: 14px;
+    font-weight: normal;
+    color: red;
+  }
 }

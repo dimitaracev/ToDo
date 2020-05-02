@@ -1,16 +1,15 @@
 <div>
   <span>Filter by title: </span
-  ><input type="search" [(ngModel)]="FilterTerm" (input)="Filter()" />
+  ><input type="search" [(ngModel)]="FilterTerm" />
   <br />
   <span>Filter by state: </span
-  ><input type="checkbox" [(ngModel)]="FilterState" (change)="Filter()" />
+  ><input type="checkbox" [(ngModel)]="FilterState"/>
   <div *ngIf="FilterState">
     <span>Finished </span
     ><input
       type="radio"
       name="state" value="true"
       [(ngModel)]="FilterFinished"
-      (change)="Filter()"
     />
     <span>Not Finished </span
     ><input
@@ -18,13 +17,14 @@
       name="state"
       [(ngModel)]="FilterFinished"
       value="false"
-      (change)="Filter()"
     />
   </div>
   <ul>
-    <li *ngFor="let todo of Todos.TodoArray">
+    <ng-container *ngFor="let todo of Todos.TodoArray">
+    <li *ngIf="CheckFilter(todo)">
         <span (click)="GotoTodo(todo['Id'])"><p class="pTitle" [class.finished]="todo['State']" >{{ todo.Title }}</p></span>
         <span class="spanRemove" (click)="RemoveTodo(todo.Id)">Remove Todo</span>
     </li>
+  </ng-container>
   </ul>
 </div>

@@ -28,11 +28,9 @@ export class TodolistComponent implements OnInit {
     this.Todos.LoadState();
     this.router.navigate(['/', 'todo', index]);
   }
-
-  Filter() {
-    this.Todos.LoadState();
-    this.Todos.TodoArray = this.Todos.TodoArray.filter((todo) => {
-      if(this.FilterState)
+  CheckFilter(todo) : Boolean
+  {
+    if(this.FilterState)
       {
         let state = (this.FilterFinished === "true");
         return todo.Title.toLowerCase().includes(this.FilterTerm.toLowerCase()) && todo.State === state;
@@ -40,6 +38,5 @@ export class TodolistComponent implements OnInit {
       else {
         return todo.Title.toLowerCase().includes(this.FilterTerm.toLowerCase());
       }
-    });
   }
 }
