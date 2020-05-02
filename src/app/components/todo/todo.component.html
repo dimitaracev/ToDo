@@ -1,0 +1,23 @@
+<div>
+  <div>
+    <span>Title: </span>
+    <input type="text" name="title" [(ngModel)]="TodoObject['Title']" />
+  </div>
+  <br />
+  <div>
+    <span>Description: </span
+    ><textarea
+      name="description"
+      [(ngModel)]="TodoObject['Description']"
+    ></textarea>
+  </div>
+  <br />
+  <div>
+    <span>Finished: </span>
+    <input type="checkbox" name="state" [(ngModel)]="TodoObject['State']" />
+  </div>
+  <br />
+  <span *ngIf="!TitleEntered">Please fill out the title!</span><br />
+  <button (click)="Update()">Update</button>
+  <button (click)="Remove()">Remove</button>
+</div>

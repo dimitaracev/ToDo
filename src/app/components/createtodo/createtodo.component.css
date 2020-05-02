@@ -1,0 +1,42 @@
+div {
+  width: 100%;
+  background-color: teal;
+  text-align: center;
+}
+
+div div {
+  position: relative;
+  min-height: 50px;
+  line-height: 50px;
+}
+
+input {
+  display: inline-block;
+  width: 15%;
+  font-size: 24px;
+  border: none;
+  padding: 5px;
+}
+
+textarea {
+  vertical-align: top;
+  display: inline-block;
+  height: 300px;
+  width: 15%;
+  border: none;
+  resize: none;
+  padding: 5px;
+}
+
+span {
+  display: inline-block;
+  width: 15%;
+  color: white;
+  font-size: 24px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+button {
+  margin-bottom: 50px;
+}
