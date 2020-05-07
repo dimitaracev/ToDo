@@ -14,18 +14,16 @@ export class TodosService {
     this.TodoArray.push(todo);
     this.SaveState();
   }
-  RemoveTodo(todo: Todo)
-  {
-    this.TodoArray = this.TodoArray.filter(t => t != todo);
+  RemoveTodo(todo: Todo) {
+    this.TodoArray = this.TodoArray.filter((t) => t != todo);
     this.SaveState();
   }
 
   SaveState() {
     window.localStorage.setItem('todoArray', JSON.stringify(this.TodoArray));
   }
-  
+
   LoadState() {
     this.TodoArray = JSON.parse(window.localStorage.getItem('todoArray'));
   }
-  
 }

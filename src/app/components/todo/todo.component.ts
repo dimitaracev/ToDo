@@ -1,44 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Todo } from '../../models/todo';
+import { Component, OnInit, Input } from '@angular/core';
 import { TodosService } from '../../services/todos.service';
+import { Todo } from '../../models/todo';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit {
-  public TodoObject: Todo;
-  public TitleEntered: Boolean;
-  constructor(
-    private route: ActivatedRoute,
-    private Todos: TodosService,
-    private router: Router
-  ) {
-    this.TodoObject = {Id:0, Title: '', Description: '', State: false };
-    this.TitleEntered = true;
-  }
+  @Input() Todo: Todo;
+  constructor(private Todos: TodosService, private router: Router) {}
 
-  ngOnInit(): void {
-    let id = Number.parseInt(this.route.snapshot.paramMap.get('id'));
-    if (id > ((this.Todos.TodoArray.length > 0) ? this.Todos.TodoArray[this.Todos.TodoArray.length - 1 ].Id : -1))  {
-      this.router.navigate(['/']);
-    } else {
-      this.TodoObject = this.Todos.TodoArray.filter((index) => index.Id == id)[0];
-    }
+  ngOnInit(): void {}
+
+  RemoveTodo() {
+    this.Todos.RemoveTodo(this.Todo);
   }
-  Update() {
-    if (this.TodoObject.Title != '') {
-      this.Todos.SaveState();
-      this.router.navigate(['/']);
-    } else {
-      this.TitleEntered = false;
-    }
-  }
-  Remove() {
-    this.Todos.RemoveTodo(this.TodoObject);
-    this.router.navigate(['/']);
+  GotoTodo() {
+    this.router.navigate(['/', 'todo', this.Todo.Id]);
   }
 }

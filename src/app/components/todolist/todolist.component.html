@@ -22,8 +22,7 @@
   <ul>
     <ng-container *ngFor="let todo of Todos.TodoArray">
     <li *ngIf="CheckFilter(todo)">
-        <span (click)="GotoTodo(todo['Id'])"><p class="pTitle" [class.finished]="todo['State']" >{{ todo.Title }}</p></span>
-        <span class="spanRemove" (click)="RemoveTodo(todo.Id)">Remove Todo</span>
+        <app-todo [Todo]="todo"></app-todo>
     </li>
   </ng-container>
   </ul>
