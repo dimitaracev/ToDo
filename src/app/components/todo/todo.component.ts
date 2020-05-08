@@ -14,7 +14,7 @@ export class TodoComponent implements OnInit {
   ngOnInit(): void {}
 
   RemoveTodo() {
-    this.Todos.RemoveTodo(this.Todo);
+    if(confirm("Are you sure you want to remove this ToDO?")) this.Todos.RemoveTodo(this.Todo);
   }
   GotoTodo() {
     this.router.navigate(['/', 'todo', this.Todo.Id]);
