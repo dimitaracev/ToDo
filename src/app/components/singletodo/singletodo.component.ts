@@ -38,7 +38,8 @@ export class SingleTodoComponent implements OnInit {
     }
   }
   Remove() {
-    this.Todos.RemoveTodo(this.TodoObject);
+    if(confirm("Are you sure you want to remove this Todo?")){this.Todos.RemoveTodo(this.TodoObject);
     this.router.navigate(['/']);
+    }
   }
 }

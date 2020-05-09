@@ -5,18 +5,18 @@
   <span>Filter by state: </span
   ><input type="checkbox" [(ngModel)]="FilterState"/>
   <div *ngIf="FilterState">
+    <span>Not Finished </span
+      ><input
+        type="radio"
+        name="state"
+        [(ngModel)]="FilterFinished"
+        value="false"
+      />
     <span>Finished </span
     ><input
       type="radio"
       name="state" value="true"
       [(ngModel)]="FilterFinished"
-    />
-    <span>Not Finished </span
-    ><input
-      type="radio"
-      name="state"
-      [(ngModel)]="FilterFinished"
-      value="false"
     />
   </div>
   <ul>

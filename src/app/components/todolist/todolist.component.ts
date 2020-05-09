@@ -13,7 +13,7 @@ export class TodolistComponent implements OnInit {
   constructor(public Todos: TodosService, private router : Router) {
     this.FilterTerm = '';
     this.FilterState = false;
-    this.FilterFinished = 'true';
+    this.FilterFinished = 'false';
   }
 
   ngOnInit(): void {}
