@@ -8,10 +8,16 @@ import { SingleTodoComponent } from './components/singletodo/singletodo.componen
 import { TodolistComponent } from './components/todolist/todolist.component';
 import { BarComponent } from './components/bar/bar.component';
 import { TodoComponent } from './components/todo/todo.component';
+import { CreategroupComponent } from './components/creategroup/creategroup.component';
+import { TitlepipePipe } from './pipes/titlepipe.pipe';
+import { StatepipePipe } from './pipes/statepipe.pipe';
+import { GrouppipePipe } from './pipes/grouppipe.pipe';
+
 const appRoutes: Routes = [
   { path:'', component: TodolistComponent},
   { path: 'createtodo', component: CreatetodoComponent },
   { path: 'todo/:id', component: SingleTodoComponent },
+  { path: 'creategroup', component: CreategroupComponent}
 ];
 
 @NgModule({
@@ -21,7 +27,11 @@ const appRoutes: Routes = [
     SingleTodoComponent,
     TodolistComponent,
     BarComponent,
-    TodoComponent
+    TodoComponent,
+    CreategroupComponent,
+    TitlepipePipe,
+    StatepipePipe,
+    GrouppipePipe
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],

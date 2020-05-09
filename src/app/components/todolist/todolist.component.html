@@ -3,27 +3,39 @@
   ><input type="search" [(ngModel)]="FilterTerm" />
   <br />
   <span>Filter by state: </span
-  ><input type="checkbox" [(ngModel)]="FilterState"/>
-  <div *ngIf="FilterState">
+  >
+  <div>
     <span>Not Finished </span
       ><input
         type="radio"
         name="state"
-        [(ngModel)]="FilterFinished"
-        value="false"
+        [(ngModel)]="FilterState"
+        value="0"
       />
     <span>Finished </span
     ><input
       type="radio"
-      name="state" value="true"
-      [(ngModel)]="FilterFinished"
+      name="state" value="1"
+      [(ngModel)]="FilterState"
     />
+    <span>All </span
+      ><input
+        type="radio"
+        name="state" value="-1"
+        [(ngModel)]="FilterState"
+      />
+  </div>
+  <div>
+    <span>Filter by Group:</span>
+    <select [(ngModel)]="FilterGroupName">
+        <ng-container *ngFor="let group of Todos.GroupArray">
+          <option group="group">{{group.Name}}</option>
+        </ng-container>
+    </select>
   </div>
   <ul>
-    <ng-container *ngFor="let todo of Todos.TodoArray">
-    <li *ngIf="CheckFilter(todo)">
+    <li *ngFor="let todo of Todos.TodoArray | titlepipe:FilterTerm | statepipe:FilterState | grouppipe:FilterGroupName">
         <app-todo [Todo]="todo"></app-todo>
     </li>
-  </ng-container>
   </ul>
 </div>

@@ -5,6 +5,15 @@
   </div>
   <br />
   <div>
+    <span>Group: </span>
+    <select [(ngModel)]="TodoObject.Group">
+      <ng-container *ngFor="let group of Todos.GroupArray">
+        <option name="group" id="group.Name">{{ group.Name }}</option>
+      </ng-container>
+    </select>
+  </div>
+  <br />
+  <div>
     <span>Description: </span
     ><textarea
       name="description"
@@ -17,6 +26,6 @@
     <input type="checkbox" name="state" [(ngModel)]="TodoObject.State" />
   </div>
   <br />
-  <span *ngIf="!TitleEntered">Please fill out the title!</span><br/>
-  <button (click)="Create()">Create</button>
+  <span *ngIf="!TitleEntered">Please fill out the title!</span><br />
+  <button (click)="Create()">Create Todo</button>
 </div>

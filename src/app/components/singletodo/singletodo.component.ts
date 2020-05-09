@@ -17,7 +17,7 @@ export class SingleTodoComponent implements OnInit {
     private Todos: TodosService,
     private router: Router
   ) {
-    this.TodoObject = new Todo(0, '','', false );
+    this.TodoObject = new Todo(0, '','', false, undefined);
     this.TitleEntered = true;
   }
 

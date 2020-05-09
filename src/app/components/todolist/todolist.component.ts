@@ -8,12 +8,12 @@ import {Router} from '@angular/router';
 })
 export class TodolistComponent implements OnInit {
   public FilterTerm: string;
-  public FilterState: boolean;
-  public FilterFinished: string;
+  public FilterState : string;
+  public FilterGroupName : string;
   constructor(public Todos: TodosService, private router : Router) {
     this.FilterTerm = '';
-    this.FilterState = false;
-    this.FilterFinished = 'false';
+    this.FilterGroupName = '';
+    this.FilterState = '-1';
   }
 
   ngOnInit(): void {}
@@ -27,16 +27,5 @@ export class TodolistComponent implements OnInit {
   {
     this.Todos.LoadState();
     this.router.navigate(['/', 'todo', index]);
-  }
-  CheckFilter(todo) : Boolean
-  {
-    if(this.FilterState)
-      {
-        let state = (this.FilterFinished === "true");
-        return todo.Title.toLowerCase().includes(this.FilterTerm.toLowerCase()) && todo.State === state;
-      }
-      else {
-        return todo.Title.toLowerCase().includes(this.FilterTerm.toLowerCase());
-      }
   }
 }

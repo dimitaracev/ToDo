@@ -5,6 +5,10 @@
   </div>
   <br />
   <div>
+    <span>Group: </span>
+    <span>{{TodoObject['Group']}}</span>
+  </div>
+  <div>
     <span>Description: </span
     ><textarea rows="30"
       name="description"
@@ -18,6 +22,6 @@
   </div>
   <br />
   <span *ngIf="!TitleEntered">Please fill out the title!</span><br />
-  <button (click)="Update()">Update</button>
-  <button (click)="Remove()">Remove</button>
+  <button (click)="Update()">Update Todo</button>
+  <button (click)="Remove()">Remove Todo</button>
 </div>
