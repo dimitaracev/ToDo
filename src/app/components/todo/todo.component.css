@@ -1,18 +1,50 @@
-.finished {
-  text-decoration: line-through;
+.container {
+  width: 100%;
+  background-color: teal;
+  padding-top: 5%;
 }
 
-.spanRemove {
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  right: 0;
-  cursor: pointer;
-  margin-right: 2%;
-  color: red;
+
+input {
+  display: inline-block;
+  width: 100%;
+  font-size: 24px;
+  border: none;
 }
 
-.pTitle {
-  display: inline;
-  cursor: pointer;
+input[type='checkBox'] {
+  width: 10%;
+  display: inline-block;
+}
+textarea {
+  vertical-align: top;
+  display: inline-block;
+  border: none;
+  resize: none;
+  width: 100%;
+  height: 10em;
+}
+
+span {
+  display: inline-block;
+  width: 15%;
+  color: white;
+  font-size: 24px;
+  margin: 0 auto;
+}
+
+button {
+  margin-bottom: 50px;
+}
+
+
+@media screen and (max-width: 650px) {
+  span {
+    font-size: 16px;
+    margin-left: 2%;
+  }
+  input[type='checkBox']
+  {
+    width: 50%;
+  }
 }

@@ -18,3 +18,14 @@ div span a {
   line-height: 85px;
   margin: 0 auto;
 }
+
+@media screen and (max-width:650px)
+{
+  div span {
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  div span a {
+    font-size: 16px;
+  }
+}

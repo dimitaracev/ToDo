@@ -1,41 +1,35 @@
 <div>
-  <span>Filter by title: </span
-  ><input type="search" [(ngModel)]="FilterTerm" />
+  <span>Filter by title: </span><input type="search" [(ngModel)]="FilterTerm" />
   <br />
-  <span>Filter by state: </span
-  >
+  <span>Filter by state: </span>
   <div>
     <span>Not Finished </span
-      ><input
-        type="radio"
-        name="state"
-        [(ngModel)]="FilterState"
-        value="0"
-      />
+    ><input type="radio" name="state" [(ngModel)]="FilterState" value="0" />
+    <br />
     <span>Finished </span
-    ><input
-      type="radio"
-      name="state" value="1"
-      [(ngModel)]="FilterState"
-    />
+    ><input type="radio" name="state" value="1" [(ngModel)]="FilterState" />
+    <br />
     <span>All </span
-      ><input
-        type="radio"
-        name="state" value="-1"
-        [(ngModel)]="FilterState"
-      />
+    ><input type="radio" name="state" value="-1" [(ngModel)]="FilterState" />
   </div>
   <div>
     <span>Filter by Group:</span>
     <select [(ngModel)]="FilterGroupName">
-        <ng-container *ngFor="let group of Todos.GroupArray">
-          <option group="group">{{group.Name}}</option>
-        </ng-container>
+      <ng-container *ngFor="let group of Todos.GroupArray">
+        <option group="group">{{ group.Name }}</option>
+      </ng-container>
     </select>
   </div>
   <ul>
-    <li *ngFor="let todo of Todos.TodoArray | titlepipe:FilterTerm | statepipe:FilterState | grouppipe:FilterGroupName">
-        <app-todo [Todo]="todo"></app-todo>
+    <li
+      *ngFor="
+        let todo of Todos.TodoArray
+          | titlepipe: FilterTerm
+          | statepipe: FilterState
+          | grouppipe: FilterGroupName
+      "
+    >
+      <app-todoitem [Todo]="todo"></app-todoitem>
     </li>
   </ul>
 </div>

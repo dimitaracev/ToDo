@@ -1,7 +1,9 @@
-div {
+.container {
   width: 100%;
   background-color: teal;
+  padding-top: 5%;
 }
+
 
 input {
   display: inline-block;
@@ -25,11 +27,12 @@ textarea {
 
 span {
   display: inline-block;
+  width: 15%;
   color: white;
   font-size: 24px;
   margin: 0 auto;
 }
- 
+
 button {
   margin-bottom: 50px;
 }
@@ -37,8 +40,8 @@ button {
 
 @media screen and (max-width: 650px) {
   span {
-    display: inline;
     font-size: 16px;
+    margin-left: 2%;
   }
   input[type='checkBox']
   {

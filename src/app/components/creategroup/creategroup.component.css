@@ -1,0 +1,35 @@
+div {
+    width: 100%;
+    background-color: teal;
+    padding-top: 5%;
+  }
+  
+  
+  input {
+    display: inline-block;
+    width: 100%;
+    font-size: 24px;
+    border: none;
+  }
+  
+  span {
+    display: inline-block;
+    width: 15%;
+    color: white;
+    font-size: 24px;
+    margin: 0 auto;
+  }
+  
+  button {
+      margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  
+  @media screen and (max-width: 650px) {
+    span {
+      font-size: 16px;
+      margin-left: 2%;
+    }
+  }
+  
