@@ -29,7 +29,11 @@
           | grouppipe: FilterGroupName
       "
     >
-      <app-todoitem [Todo]="todo"></app-todoitem>
+      <app-todoitem
+        (remove)="RemoveTodo($event)"
+        (goto)="GotoTodo($event)"
+        [Todo]="todo"
+      ></app-todoitem>
     </li>
   </ul>
 </div>

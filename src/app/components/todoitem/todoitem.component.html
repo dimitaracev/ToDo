@@ -1,6 +1,6 @@
 <div>
-  <span (click)="GotoTodo()"
+  <span (click)="EmitGoto()"
     ><p class="pTitle" [class.Completed]="Todo.State">{{ Todo.Title }}</p></span
   >
-  <span class="spanRemove" (click)="RemoveTodo()">Remove</span>
+  <span class="spanRemove" (click)="EmitRemove()">Remove</span>
 </div>

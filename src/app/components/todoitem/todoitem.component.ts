@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { TodosService } from '../../services/todos.service';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Todo } from '../../models/todo';
-import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-todoitem',
   templateUrl: './todoitem.component.html',
@@ -9,14 +8,16 @@ import { Router } from '@angular/router';
 })
 export class TodoitemComponent implements OnInit {
   @Input() Todo: Todo;
-  constructor(private Todos: TodosService, private router: Router) {}
+  @Output() remove : EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() goto : EventEmitter<number> = new EventEmitter<number>();
+  constructor() {}
 
   ngOnInit(): void {}
 
-  RemoveTodo() {
-    if(confirm("Are you sure you want to remove this Todo?")) this.Todos.RemoveTodo(this.Todo);
+  EmitRemove() {
+    this.remove.emit(this.Todo);
   }
-  GotoTodo() {
-    this.router.navigate(['/', 'todo', this.Todo.Id]);
+  EmitGoto() {
+    this.goto.emit(this.Todo.Id);
   }
 }

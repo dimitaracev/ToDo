@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../../services/todos.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
@@ -8,9 +8,9 @@ import {Router} from '@angular/router';
 })
 export class TodolistComponent implements OnInit {
   public FilterTerm: string;
-  public FilterState : string;
-  public FilterGroupName : string;
-  constructor(public Todos: TodosService, private router : Router) {
+  public FilterState: string;
+  public FilterGroupName: string;
+  constructor(public Todos: TodosService, private router: Router) {
     this.FilterTerm = '';
     this.FilterGroupName = '';
     this.FilterState = '-1';
@@ -18,13 +18,16 @@ export class TodolistComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  RemoveTodo(index) {
-    this.Todos.TodoArray = this.Todos.TodoArray.filter((id) => id.Id != index);
-    this.Todos.SaveState();
+  RemoveTodo(Todo) {
+    if (confirm('Are you sure you want to remove this Todo?')) {
+      this.Todos.TodoArray = this.Todos.TodoArray.filter(
+        (id) => id.Id != Todo.Id
+      );
+      this.Todos.SaveState();
+    }
   }
 
-  GotoTodo(index)
-  {
+  GotoTodo(index) {
     this.Todos.LoadState();
     this.router.navigate(['/', 'todo', index]);
   }
