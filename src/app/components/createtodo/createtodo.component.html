@@ -8,7 +8,7 @@
     <span>Group: </span>
     <select [(ngModel)]="TodoObject.Group">
       <ng-container *ngFor="let group of Todos.GroupArray">
-        <option name="group" id="group.Name">{{ group.Name }}</option>
+        <option name="group" id="{{ group }}">{{ group }}</option>
       </ng-container>
     </select>
   </div>

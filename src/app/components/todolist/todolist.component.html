@@ -16,7 +16,7 @@
     <span>Filter by Group:</span>
     <select [(ngModel)]="FilterGroupName">
       <ng-container *ngFor="let group of Todos.GroupArray">
-        <option group="group">{{ group.Name }}</option>
+        <option group="group">{{ group }}</option>
       </ng-container>
     </select>
   </div>

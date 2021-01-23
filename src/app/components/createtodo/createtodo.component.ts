@@ -20,7 +20,6 @@ export class CreatetodoComponent implements OnInit {
     if (this.TodoObject.Title != '') {
       let todo: Todo = this.TodoObject;
       todo.Id = (this.Todos.TodoArray.length > 0) ? (this.Todos.TodoArray[this.Todos.TodoArray.length - 1].Id + 1) : 0;
-      console.log(todo);
       this.Todos.AddTodo(todo);
       this.TodoObject = new Todo(0, '', '', false, '');
       this.router.navigate(['/']);
